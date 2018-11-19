@@ -240,10 +240,31 @@
         ]
     },
     {
+        "poolName": "ZPOOL 2.0",
+        "url": "https://zpool.ca/",
+        "searchStrings": [
+            "zpool.ca"
+        ]
+    },
+    {
+        "poolName": "blazepool",
+        "url": "http://blazepool.com/",
+        "searchStrings": [
+            "blazepool"
+        ]
+    },
+    {
+        "poolName": "A Hash Pool",
+        "url": "https://www.ahashpool.com/",
+        "searchStrings": [
+            "ahashpool"
+        ]
+    },
+    {
         "poolName": "TheBSODPool",
         "url": "https://bsod.pw/",
         "searchStrings": [
-            "bsod.solo"
+            "bsod"
         ]
     },
     {
