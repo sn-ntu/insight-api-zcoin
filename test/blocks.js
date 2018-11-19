@@ -124,7 +124,7 @@ describe('Blocks', function () {
             var next = function () {
                 should.exist(req.block);
                 var block = req.block;
-                req.block.poolInfo.poolName.should.equal('Discus Fish');
+                req.block.poolInfo.poolName.should.equal('F2Pool');
                 req.block.poolInfo.url.should.equal('http://f2pool.com/');
                 done();
             };

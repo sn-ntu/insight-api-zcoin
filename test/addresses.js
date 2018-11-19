@@ -4,6 +4,7 @@ var should = require('should');
 var AddressController = require('../lib/addresses');
 var _ = require('lodash');
 var bitcore = require('zcore-lib');
+var AddrUtils = bitcore.util.AddrUtils;
 
 var txinfos = {
     totalCount: 2,
@@ -49,7 +50,7 @@ var txinfos = {
             }
         },
         {
-            'address': 'mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er',
+            'address': AddrUtils.bitcoin_address_to_zcoin('mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er'),
             'satoshis': -2782729129,
             'height': 534110,
             'confirmations': 118,
@@ -103,7 +104,7 @@ var tx = {
     feeSatoshis: 10000,
     inputs: [
         {
-            address: 'moFfnRwt77pApKnnU6m5uocFaa43aAYpt5',
+            address: AddrUtils.bitcoin_address_to_zcoin('moFfnRwt77pApKnnU6m5uocFaa43aAYpt5'),
             prevTxId: 'ea97726ffc529808094ae5568342267931a058375a20147535a0d095837079f3',
             outputIndex: 1,
             sequence: 4294967295,
@@ -112,7 +113,7 @@ var tx = {
             satoshis: 53540000,
         },
         {
-            address: 'n1XJBAyU4hNR4xRtY3UxnmAteoJX83p5qv',
+            address: AddrUtils.bitcoin_address_to_zcoin('n1XJBAyU4hNR4xRtY3UxnmAteoJX83p5qv'),
             prevTxId: '980a9cc2dbc2d3464eb9900ae6d579a03045408563320f62d99316c3d4ff58b7',
             outputIndex: 2,
             sequence: 4294967295,
@@ -126,16 +127,16 @@ var tx = {
             satoshis: 220000,
             script: '76a914b9bbd76588d9e4e09f0369a9aa0b2749a11c4e8d88ac',
             scriptAsm: 'OP_DUP OP_HASH160 b9bbd76588d9e4e09f0369a9aa0b2749a11c4e8d OP_EQUALVERIFY OP_CHECKSIG',
-            address: 'mxT2KzTUQvsaYYothDtjcdvyAdaHA9ofMp'
+            address: AddrUtils.bitcoin_address_to_zcoin('mxT2KzTUQvsaYYothDtjcdvyAdaHA9ofMp')
         },
         {
             satoshis: 53320000,
-            address: 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK',
+            address: AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'),
             script: '76a914d2ec20bb8e5f25a52f730384b803d95683250e0b88ac',
             scriptAsm: 'OP_DUP OP_HASH160 d2ec20bb8e5f25a52f730384b803d95683250e0b OP_EQUALVERIFY OP_CHECKSIG'
         },
         {
-            address: 'moZY18rGNmh4YCPeugtGW46AkkWMQttBUD',
+            address: AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD'),
             satoshis: 289829,
             script: '76a914583df9fa56ad961051e00ca93e68dfaf1eab9ec588ac',
             scriptAsm: 'OP_DUP OP_HASH160 583df9fa56ad961051e00ca93e68dfaf1eab9ec5 OP_EQUALVERIFY OP_CHECKSIG'
@@ -155,7 +156,7 @@ var txinfos2 = {
 
 var utxos = [
     {
-        'address': 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK',
+        'address': AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'),
         'txid': '63b68becb0e514b32317f4b29a5cf0627d4087e54ac17f686fcb1d9a27680f73',
         'outputIndex': 1,
         'timestamp': 1441116143,
@@ -165,7 +166,7 @@ var utxos = [
         'confirmations': 50
     },
     {
-        'address': 'moZY18rGNmh4YCPeugtGW46AkkWMQttBUD',
+        'address': AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD'),
         'txid': '63b68becb0e514b32317f4b29a5cf0627d4087e54ac17f686fcb1d9a27680f73',
         'outputIndex': 2,
         'timestamp': 1441116143,
@@ -196,13 +197,13 @@ describe('Addresses', function () {
 
         var addresses = new AddressController(node);
         var req = {
-            addr: 'mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er',
+            addr: AddrUtils.bitcoin_address_to_zcoin('mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er'),
             query: {}
         };
 
         it('should have correct data', function (done) {
             var insight = {
-                'addrStr': 'mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er',
+                'addrStr': AddrUtils.bitcoin_address_to_zcoin('mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er'),
                 'balance': 0,
                 'balanceSat': 0,
                 'totalReceived': 27.82729129,
@@ -238,7 +239,7 @@ describe('Addresses', function () {
                 query: {
                     noTxList: 1
                 },
-                addr: 'mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er'
+                addr: AddrUtils.bitcoin_address_to_zcoin('mkPvAKZ2rar6qeG3KjBtJHHMSP1wFZH7Er')
             };
             var send = sinon.stub();
             var status = sinon.stub().returns({send: send});
@@ -308,7 +309,7 @@ describe('Addresses', function () {
         it('should have correct data', function (done) {
             var insight = [
                 {
-                    'address': 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK',
+                    'address': AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'),
                     'txid': '63b68becb0e514b32317f4b29a5cf0627d4087e54ac17f686fcb1d9a27680f73',
                     'vout': 1,
                     'ts': 1441116143,
@@ -339,7 +340,7 @@ describe('Addresses', function () {
             var addresses = new AddressController(node);
 
             var req = {
-                addr: 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'
+                addr: AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK')
             };
 
             var res = {
@@ -358,7 +359,7 @@ describe('Addresses', function () {
         it('should have the correct data', function (done) {
             var insight = [
                 {
-                    'address': 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK',
+                    'address': AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'),
                     'txid': '63b68becb0e514b32317f4b29a5cf0627d4087e54ac17f686fcb1d9a27680f73',
                     'vout': 1,
                     'ts': 1441116143,
@@ -370,7 +371,7 @@ describe('Addresses', function () {
                     'confirmationsFromCache': true
                 },
                 {
-                    'address': 'moZY18rGNmh4YCPeugtGW46AkkWMQttBUD',
+                    'address': AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD'),
                     'txid': '63b68becb0e514b32317f4b29a5cf0627d4087e54ac17f686fcb1d9a27680f73',
                     'vout': 2,
                     'ts': 1441116143,
@@ -403,7 +404,8 @@ describe('Addresses', function () {
             var addresses = new AddressController(node);
 
             var req = {
-                addrs: 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK,moZY18rGNmh4YCPeugtGW46AkkWMQttBUD'
+                addrs: "'"+AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK')
+                  +","+AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD')+"'"
             };
 
             var res = {
@@ -439,7 +441,7 @@ describe('Addresses', function () {
                                 },
                                 'sequence': 4294967295,
                                 'n': 0,
-                                'addr': 'moFfnRwt77pApKnnU6m5uocFaa43aAYpt5',
+                                'addr': AddrUtils.bitcoin_address_to_zcoin('moFfnRwt77pApKnnU6m5uocFaa43aAYpt5'),
                                 'valueSat': 53540000,
                                 'value': 0.5354,
                                 'doubleSpentTxID': null
@@ -453,7 +455,7 @@ describe('Addresses', function () {
                                 },
                                 'sequence': 4294967295,
                                 'n': 1,
-                                'addr': 'n1XJBAyU4hNR4xRtY3UxnmAteoJX83p5qv',
+                                'addr': AddrUtils.bitcoin_address_to_zcoin('n1XJBAyU4hNR4xRtY3UxnmAteoJX83p5qv'),
                                 'valueSat': 299829,
                                 'value': 0.00299829,
                                 'doubleSpentTxID': null
@@ -469,7 +471,7 @@ describe('Addresses', function () {
                                     'reqSigs': 1,
                                     'type': 'pubkeyhash',
                                     'addresses': [
-                                        'mxT2KzTUQvsaYYothDtjcdvyAdaHA9ofMp'
+                                      AddrUtils.bitcoin_address_to_zcoin('mxT2KzTUQvsaYYothDtjcdvyAdaHA9ofMp')
                                     ]
                                 },
                                 'spentHeight': null,
@@ -485,7 +487,7 @@ describe('Addresses', function () {
                                     'reqSigs': 1,
                                     'type': 'pubkeyhash',
                                     'addresses': [
-                                        'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'
+                                      AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK')
                                     ],
                                 },
                                 'spentHeight': null,
@@ -501,7 +503,7 @@ describe('Addresses', function () {
                                     'reqSigs': 1,
                                     'type': 'pubkeyhash',
                                     'addresses': [
-                                        'moZY18rGNmh4YCPeugtGW46AkkWMQttBUD'
+                                      AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD')
                                     ]
                                 },
                                 'spentHeight': null,
@@ -561,7 +563,8 @@ describe('Addresses', function () {
             var addresses = new AddressController(node);
 
             var req = {
-                addrs: 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK,moZY18rGNmh4YCPeugtGW46AkkWMQttBUD',
+                addrs:  "'"+AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK')
+                  +","+AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD')+"'",
                 query: {},
                 body: {}
             };
@@ -592,7 +595,7 @@ describe('Addresses', function () {
                                 'vout': 1,
                                 'sequence': 4294967295,
                                 'n': 0,
-                                'addr': 'moFfnRwt77pApKnnU6m5uocFaa43aAYpt5',
+                                'addr': AddrUtils.bitcoin_address_to_zcoin('moFfnRwt77pApKnnU6m5uocFaa43aAYpt5'),
                                 'valueSat': 53540000,
                                 'value': 0.5354,
                                 'doubleSpentTxID': null
@@ -602,7 +605,7 @@ describe('Addresses', function () {
                                 'vout': 2,
                                 'sequence': 4294967295,
                                 'n': 1,
-                                'addr': 'n1XJBAyU4hNR4xRtY3UxnmAteoJX83p5qv',
+                                'addr': AddrUtils.bitcoin_address_to_zcoin('n1XJBAyU4hNR4xRtY3UxnmAteoJX83p5qv'),
                                 'valueSat': 299829,
                                 'value': 0.00299829,
                                 'doubleSpentTxID': null
@@ -617,7 +620,7 @@ describe('Addresses', function () {
                                     'reqSigs': 1,
                                     'type': 'pubkeyhash',
                                     'addresses': [
-                                        'mxT2KzTUQvsaYYothDtjcdvyAdaHA9ofMp'
+                                      AddrUtils.bitcoin_address_to_zcoin('mxT2KzTUQvsaYYothDtjcdvyAdaHA9ofMp')
                                     ]
                                 }
                             },
@@ -629,7 +632,7 @@ describe('Addresses', function () {
                                     'reqSigs': 1,
                                     'type': 'pubkeyhash',
                                     'addresses': [
-                                        'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK'
+                                      AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK')
                                     ],
                                 }
                             },
@@ -641,7 +644,7 @@ describe('Addresses', function () {
                                     'reqSigs': 1,
                                     'type': 'pubkeyhash',
                                     'addresses': [
-                                        'moZY18rGNmh4YCPeugtGW46AkkWMQttBUD'
+                                      AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD')
                                     ]
                                 }
                             }
@@ -698,7 +701,8 @@ describe('Addresses', function () {
             var addresses = new AddressController(node);
 
             var req = {
-                addrs: 'mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK,moZY18rGNmh4YCPeugtGW46AkkWMQttBUD',
+                addrs: "'"+AddrUtils.bitcoin_address_to_zcoin('mzkD4nmQ8ixqxySdBgsXTpgvAMK5iRZpNK')
+                  +","+AddrUtils.bitcoin_address_to_zcoin('moZY18rGNmh4YCPeugtGW46AkkWMQttBUD')+"'",
                 query: {noSpent: '1', noScriptSig: '1', noAsm: '1'},
                 body: {}
             };

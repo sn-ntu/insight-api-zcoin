@@ -72,7 +72,7 @@
         ]
     },
     {
-        "poolName": "Discus Fish",
+        "poolName": "F2Pool",
         "url": "http://f2pool.com/",
         "searchStrings": [
             "七彩神仙鱼",
@@ -237,6 +237,34 @@
         "url": "https://pool.btcc.com/",
         "searchStrings": [
             "/BTCC/"
+        ]
+    },
+    {
+        "poolName": "TheBSODPool",
+        "url": "https://bsod.pw/",
+        "searchStrings": [
+            "bsod.solo"
+        ]
+    },
+    {
+        "poolName": "YiiMP.eu",
+        "url": "http://yiimp.eu/",
+        "searchStrings": [
+            "yiimp"
+        ]
+    },
+    {
+        "poolName": "Mintpond",
+        "url": "https://mintpond.com/",
+        "searchStrings": [
+            "/MintPond/"
+        ]
+    },
+    {
+        "poolName": "Miningpoolhub",
+        "url": "https://miningpoolhub.com/",
+        "searchStrings": [
+            "/mph/"
         ]
     }
 ]
