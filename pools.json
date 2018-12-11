@@ -275,10 +275,17 @@
         ]
     },
     {
-        "poolName": "Mintpond",
+        "poolName": "MintPond",
         "url": "https://mintpond.com/",
         "searchStrings": [
-            "/MintPond"
+            "/MintPond/"
+        ]
+    },
+    {
+        "poolName": "MintPond MTP Ref",
+        "url": "https://mintpond.com/",
+        "searchStrings": [
+            "/MintPond MTP Ref/"
         ]
     },
     {
