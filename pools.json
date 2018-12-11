@@ -278,7 +278,14 @@
         "poolName": "Mintpond",
         "url": "https://mintpond.com/",
         "searchStrings": [
-            "/MintPond/"
+            "/MintPond"
+        ]
+    },
+    {
+        "poolName": "2Miners",
+        "url": "https://2miners.com",
+        "searchStrings": [
+            "2Miners"
         ]
     },
     {
