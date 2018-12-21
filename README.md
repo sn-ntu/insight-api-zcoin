@@ -26,6 +26,18 @@ bitcore-node-zcoin install insight-api-zcoin
 bitcore-node-zcoin start
 ```
 
+## Since rich list implementation:
+bitcore-node-zcoin.json:
+```{
+  "servicesConfig": {
+    "insight-api-zcoin": {
+      "db": {
+        "url": "mongodb://localhost:27017/insight"
+      }
+    }
+  }
+}```
+
 The API endpoints will be available by default at: `http://localhost:3001/insight-api-zcoin/`
 
 ## Prerequisites
