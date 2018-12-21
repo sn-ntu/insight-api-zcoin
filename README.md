@@ -36,7 +36,7 @@ bitcore-node-zcoin.json:
       }
     }
   }
-}```
+```
 
 The API endpoints will be available by default at: `http://localhost:3001/insight-api-zcoin/`
 
