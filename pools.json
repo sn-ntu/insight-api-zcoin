@@ -296,6 +296,13 @@
         ]
     },
     {
+        "poolName": "BlockQuarry",
+        "url": "https://hodl.blockquarry.com",
+        "searchStrings": [
+            "/BlockQuarry/"
+        ]
+    },
+    {
         "poolName": "Miningpoolhub",
         "url": "https://miningpoolhub.com/",
         "searchStrings": [
