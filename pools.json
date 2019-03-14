@@ -303,6 +303,13 @@
         ]
     },
     {
+        "poolName": "Zergpool",
+        "url": "http://zergpool.com/",
+        "searchStrings": [
+            "/Zergpool.com/"
+        ]
+    },
+    {
         "poolName": "Miningpoolhub",
         "url": "https://miningpoolhub.com/",
         "searchStrings": [
